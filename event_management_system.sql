@@ -464,6 +464,31 @@ FROM Tickets;
 SELECT * 
 FROM Ticket_transaction;
 
+-- creating an index on the "Event_location" column in the "Events" table
+CREATE INDEX idx_Events_Event_location ON Events (Event_location);
+
+-- query utilising the index to retrieve events taking place at a specific location
+SELECT Event_name, Event_start_date, Event_end_date
+FROM Events
+WHERE Event_location = 'Your Location';
+
+-- creating an index on the "Event_start_date" column in the "Events" table
+CREATE INDEX idx_event_start_date ON Events (Event_start_date);
+
+-- query utilizing index on "Event_start_date" column in the "Events" table, and ordering the events that take place before current date
+SELECT Event_name, Event_start_date, Event_location
+FROM Events
+WHERE Event_start_date < CURRENT_DATE
+ORDER BY Event_start_date;
+
+-- creating an index on the "Ticket_price" column in the "Tickets" table
+CREATE INDEX idx_tickets_price ON Tickets (Ticket_price);
+
+-- query utilizing index on "Ticket_price" to retrieve tickets within a specific price range
+SELECT Ticket_ID, Ticket_price
+FROM Tickets
+WHERE Ticket_price BETWEEN 15.00 AND 25.00;
+
 -- procedure 1: update ticket stock procedure
 CREATE OR REPLACE PROCEDURE update_ticket_stock(
   p_ticket_id VARCHAR(20),
