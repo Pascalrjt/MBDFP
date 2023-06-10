@@ -531,6 +531,26 @@ SELECT Sponsor_contact_person, Sponsor_phoneNum
 FROM Sponsors
 WHERE Sponsor_ID = '24597';
 
+-- procedure 3: Updating the event location for a specific event
+CREATE OR REPLACE PROCEDURE update_event_location(
+    event_id VARCHAR(20),
+    new_location VARCHAR(40)
+)
+LANGUAGE SQL
+AS $$
+UPDATE Events
+SET Event_location = new_location
+WHERE Event_ID = event_id;
+$$;
+
+-- calling procedure 3
+CALL update_event_location('72597330248', 'Tower ITS');
+
+-- viewing updated location of event
+SELECT Event_location
+FROM Events
+WHERE Event_ID = '72597330248';
+
 -- function 1: viewing sponsor money from specific event
 CREATE OR REPLACE FUNCTION get_total_sponsorship_amount(event_id VARCHAR(20))
 RETURNS DECIMAL(16,2)
