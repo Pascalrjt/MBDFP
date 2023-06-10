@@ -1,7 +1,7 @@
-REM   Script: MyITS Events
-Pascal Roger Junior Tauran - 5025211072
-Faraihan Rafi Adityawarman - 5025211074
-Ariel Pratama Menlolo - 5025211194
+--REM   Script: Event Management System
+--Pascal Roger Junior Tauran    - 5025211072
+--Faraihan Rafi Adityawarman    - 5025211074
+--Ariel Pratama Menlolo         - 5025211194
 
 Create table Handlers ( 
         Handler_ID          VARCHAR(20), 
@@ -108,7 +108,7 @@ Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNu
 
 Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000043', 'Michael Brown', 'Vendor_manager', '0813-6288-8998');
 
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000091', 'Olivia Johnson', 'Chief', '0 851-9314-3926');
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000091', 'Olivia Johnson', 'Chief', '0851-9314-3926');
 
 Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000017', 'Ethan Williams', 'Operational', '0853-6786-6921');
 
@@ -120,49 +120,49 @@ Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNu
 
 Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000080', 'James Taylor', 'Ticket_seller', '0815-6422-1928');
 
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000094', 'Emily Davis', 'Vendor_manager', '0 856-9812-3865');
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000094', 'Emily Davis', 'Vendor_manager', '0856-9812-3865');
 
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000001', 'William Rodriguez', 'Operational', '0 811-4499-9885');
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000001', 'William Rodriguez', 'Operational', '0811-4499-9885');
 
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('501234567', 'Dewi Sutanto', 'Operational', '0 812-345-678');
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('501234567', 'Dewi Sutanto', 'Operational', '0812-345-678');
 
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('509876543', 'Agus Setiawan', 'Vendor_manager', '0 821-234-567');
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('509876543', 'Agus Setiawan', 'Vendor_manager', '0821-234-567');
 
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('503456789', 'Lusi Novitasari', 'Ticket_seller', '0 857-123-456');
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('503456789', 'Lusi Novitasari', 'Ticket_seller', '0857-123-456');
 
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('509283471', 'Kiki Pratiwi', 'Creative', '0 813-321-789');
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('509283471', 'Kiki Pratiwi', 'Creative', '0813-321-789');
 
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('504567819', 'Yadi Susanto', 'Creative', '0 895-432-761');
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('504567819', 'Yadi Susanto', 'Creative', '0895-432-761');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('8457412763', 'Emily Smith', 'EmilySmith@gmail.com', '0 816-7315-6629');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('8457412763', 'Emily Smith', 'EmilySmith@gmail.com', '0816-7315-6629');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('8672054198', 'James Johnson', 'JamesJohnson@gmail.com', '0 851-7129-8115');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('8672054198', 'James Johnson', 'JamesJohnson@gmail.com', '0851-7129-8115');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('195824367', 'Sophia Williams', 'SophiaWilliams@gmail.com', '0 855-5298-4822');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('195824367', 'Sophia Williams', 'SophiaWilliams@gmail.com', '0855-5298-4822');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('4958731260', 'Michael Brown', 'MichaelBrown@gmail.com', '0 819-5566-5996');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('4958731260', 'Michael Brown', 'MichaelBrown@gmail.com', '0819-5566-5996');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('6103269547', 'Olivia Jones', 'OliviaJones@gmail.com', '0 819-7388-3199');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('6103269547', 'Olivia Jones', 'OliviaJones@gmail.com', '0819-7388-3199');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('4905167392', 'William Davis', 'WilliamDavis@gmail.com', '0 895-8685-2466');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('4905167392', 'William Davis', 'WilliamDavis@gmail.com', '0895-8685-2466');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('6847531092', 'Madison Thompson', 'MadisonThompson@gmail.com', '0 856-9181-6292');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('6847531092', 'Madison Thompson', 'MadisonThompson@gmail.com', '0856-9181-6292');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('2395641780', 'Benjamin Miller', 'BenjaminMiller@gmail.com', '0 899-1445-8115');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('2395641780', 'Benjamin Miller', 'BenjaminMiller@gmail.com', '0899-1445-8115');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('6783912054', 'Elizabeth Anderson', 'ElizabethAnderson@gmail.com', '0 851-3895-9222');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('6783912054', 'Elizabeth Anderson', 'ElizabethAnderson@gmail.com', '0851-3895-9222');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('2978346501', 'Matthew Taylor', 'MatthewTaylor@gmail.com', '0 853-2895-2228');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('2978346501', 'Matthew Taylor', 'MatthewTaylor@gmail.com', '0853-2895-2228');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('7593812460', 'Rini Wijayanti', 'DewiSutanto@gmail.com', '0 842-369-708');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('7593812460', 'Rini Wijayanti', 'DewiSutanto@gmail.com', '0842-369-708');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('2345681790', 'Budi Hartono', 'AgusSetiawan@gmail.com', '0 871-352-647');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('2345681790', 'Budi Hartono', 'AgusSetiawan@gmail.com', '0871-352-647');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('9876543210', 'Siti Nurhaliza', 'LusiNovitasari@gmail.com', '0 853-217-486');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('9876543210', 'Siti Nurhaliza', 'LusiNovitasari@gmail.com', '0853-217-486');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('1234567890', 'Andi Prasetyo', 'KikiPratiwi@gmail.com', '0 824-193-657');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('1234567890', 'Andi Prasetyo', 'KikiPratiwi@gmail.com', '0824-193-657');
 
-Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('6543219870', 'Rizki Aditya', 'YadiSusanto@gmail.com', '0 879-452-319');
+Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('6543219870', 'Rizki Aditya', 'YadiSusanto@gmail.com', '0879-452-319');
 
 Insert into Stalls (Stall_ID, Stall_name, Stall_handler, Stall_fee) values ('10000001', 'Mixue', 'Emma Jones', 100);
 
@@ -194,35 +194,35 @@ Insert into Stalls (Stall_ID, Stall_name, Stall_handler, Stall_fee) values ('100
 
 Insert into Stalls (Stall_ID, Stall_name, Stall_handler, Stall_fee) values ('10009283', 'The Yummy Yum-Yum', 'Rachel Davis', 100);
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('24597', 'PT. Pertamina', 10000, 'Emily Smith', '0 812-123-4567');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('24597', 'PT. Pertamina', 10000, 'Emily Smith', '0812-123-4567');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('31486', 'MNC Group', 20000, 'William Johnson', '0 821-345-6789');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('31486', 'MNC Group', 20000, 'William Johnson', '0821-345-6789');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('60987', 'Mixue LLC', 30000, 'Madison White', '0 857-678-9012');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('60987', 'Mixue LLC', 30000, 'Madison White', '0857-678-9012');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('52468', 'Shoppee', 20000, 'Ethan Davis', '0 813-901-2345');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('52468', 'Shoppee', 20000, 'Ethan Davis', '0813-901-2345');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('47389', 'PT. Indofood', 10000, 'Charlotte Brown', '0 819-234-5678');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('47389', 'PT. Indofood', 10000, 'Charlotte Brown', '0819-234-5678');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('39607', 'Next Gen Technology Solutions', 30000, 'Michael Anderson', '0 895-678-9012');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('39607', 'Next Gen Technology Solutions', 30000, 'Michael Anderson', '0895-678-9012');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('20349', 'Forward Thinking Corporation', 50000, 'Abigail Jones', '0 851-234-5678');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('20349', 'Forward Thinking Corporation', 50000, 'Abigail Jones', '0851-234-5678');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('29158', 'Global Innovations Inc.', 30000, 'Benjamin Wilson', '0 831-567-8901');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('29158', 'Global Innovations Inc.', 30000, 'Benjamin Wilson', '0831-567-8901');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('78634', 'Forward Progress Technologies', 20000, 'Elizabeth Taylor', '0 899-876-5432');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('78634', 'Forward Progress Technologies', 20000, 'Elizabeth Taylor', '0899-876-5432');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('81597', 'Innovative Minds LLC', 10000, 'Alexander Miller', '0 898-765-4321');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('81597', 'Innovative Minds LLC', 10000, 'Alexander Miller', '0898-765-4321');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('75938', 'Alpha Corp', 22000, 'Olivia Anderson', '0 865-243-710');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('75938', 'Alpha Corp', 22000, 'Olivia Anderson', '0865-243-710');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('23456', 'Omega Enterprises', 16000, 'Ethan Johnson', '0 841-927-653');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('23456', 'Omega Enterprises', 16000, 'Ethan Johnson', '0841-927-653');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('98765', 'Delta Solutions', 23000, 'Sophie Williams', '0 872-513-946');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('98765', 'Delta Solutions', 23000, 'Sophie Williams', '0872-513-946');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('12345', 'Gamma Technologies', 30000, 'Liam Thompson', '0 893-421-657');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('12345', 'Gamma Technologies', 30000, 'Liam Thompson', '0893-421-657');
 
-Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('65432', 'Sigma Resources', 58000, 'Emily Davis', '0 852-679-310');
+Insert into Sponsors (Sponsor_ID, Sponsor_name, Sponsor_money, Sponsor_contact_person, Sponsor_phoneNum) values ('65432', 'Sigma Resources', 58000, 'Emily Davis', '0852-679-310');
 
 Insert into Special_Guest (Guest_ID, Guest_name, Guest_fee) values ('6239', 'Agnez Mo', 15000);
 
@@ -292,7 +292,7 @@ Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Even
 
 Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('64569316648', 'Ini Lho ITS! 2023', 'Graha Sepuluh Nopember', DATE '2022-04-09', DATE '2022-04-16', '23456');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('70910949630', 'Mabacup 2022', 'The Sport Building', DATE '2022-05-21', DATE '2022-05-28', '75838');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('70910949630', 'Mabacup 2022', 'The Sport Building', DATE '2022-05-21', DATE '2022-05-28', '75938');
 
 Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('74230130051', 'ARA 4.0', 'The Business Building', DATE '2022-06-02', DATE '2022-06-09', '81597');
 
@@ -501,13 +501,35 @@ BEGIN
   WHERE Ticket_ID = p_ticket_id;
 END;
 $$;
--- calling the procedure
+-- calling procedure 1
 CALL update_ticket_stock('your_ticket_id', your_quantity);
 
 -- viewing the updated ticket stock
 SELECT Ticket_stock
 FROM Tickets
 WHERE Ticket_ID = 'your_ticket_id';
+
+-- procedure 2: Updating sponsor contact person and their phone number
+CREATE OR REPLACE PROCEDURE update_sponsor_contact_person(
+    sponsor_id VARCHAR(20),
+    new_contact_person VARCHAR(20),
+    new_phone_num VARCHAR(20)
+)
+LANGUAGE SQL
+AS $$
+UPDATE Sponsors
+SET Sponsor_contact_person = new_contact_person,
+    Sponsor_phoneNum = new_phone_num
+WHERE Sponsor_ID = sponsor_id;
+$$;
+
+-- calling procedure 2
+CALL update_sponsor_contact_person('24597', 'John Doe', '987654321');
+
+-- viewing the updated sponsor contact person
+SELECT Sponsor_contact_person, Sponsor_phoneNum
+FROM Sponsors
+WHERE Sponsor_ID = '24597';
 
 -- function 1: viewing sponsor money from specific event
 CREATE OR REPLACE FUNCTION get_total_sponsorship_amount(event_id VARCHAR(20))
@@ -525,5 +547,34 @@ BEGIN
 END;
 $$;
 
--- calling the function
+-- calling function 1
 SELECT get_total_sponsorship_amount('your_event_id');
+
+-- function 2: calculating projected revenue of an event from ticket sales
+CREATE OR REPLACE FUNCTION calculate_total_revenue(event_id VARCHAR(20))
+RETURNS DECIMAL(16, 2)
+LANGUAGE SQL
+AS $$
+SELECT SUM(T.Ticket_price * T.Ticket_stock) AS total_revenue
+FROM Ticket_transaction TT
+JOIN Tickets T ON TT.Tickets_Ticket_ID = T.Ticket_ID
+WHERE TT.Events_Event_ID = event_id;
+$$;
+
+-- calling function 2
+SELECT calculate_total_revenue('your_event_id');
+
+-- function 3: displaying the duration of an event (in days)
+CREATE OR REPLACE FUNCTION get_event_duration(event_id VARCHAR(20))
+RETURNS INTEGER
+LANGUAGE SQL
+AS $$
+SELECT (Event_end_date - Event_start_date) AS event_duration
+FROM Events
+WHERE Event_ID = event_id;
+$$;
+
+-- calling function 3
+SELECT get_event_duration('your_event_id') AS event_duration;
+
+
