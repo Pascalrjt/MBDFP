@@ -392,17 +392,6 @@ SELECT EVENT_LOCATION,
 FROM EVENTS 
 GROUP BY EVENT_LOCATION;
 
-SELECT * 
-FROM (SELECT Handler_ID, Handler_name 
-    FROM Handlers 
-    WHERE Handler_jobdesk = 'Ticket_seller');
-
-SELECT * 
-FROM (SELECT Sponsor_ID, Sponsor_name, Sponsor_money 
-      FROM Sponsors 
-      WHERE Sponsor_money > 15000 
-      ORDER BY Sponsor_money DESC);
-
 SELECT EVENTS.EVENT_NAME, 
     ATTENDEE.ATTENDEE_NAME, 
     COUNT(*) 
@@ -436,19 +425,6 @@ WHERE ATTENDEE_NAME IN (
         WHERE EVENTS_EVENT_ID = '61539471910' 
     );
 
-SELECT * 
-FROM ( 
-        SELECT EVENTS.EVENT_NAME, 
-            ATTENDEE.ATTENDEE_NAME, 
-            TICKETS.TICKET_PRICE 
-        FROM TICKET_TRANSACTION 
-            INNER JOIN EVENTS 
-            ON TICKET_TRANSACTION.EVENTS_EVENT_ID = EVENTS.EVENT_ID 
-            INNER JOIN ATTENDEE 
-            ON TICKET_TRANSACTION.ATTENDEE_ATTENDEE_ID = ATTENDEE.ATTENDEE_ID 
-            INNER JOIN TICKETS 
-            ON TICKET_TRANSACTION.TICKETS_TICKET_ID = TICKETS.TICKET_ID 
-    );
 
 SELECT Handlers.Handler_name, Attendee.Attendee_name, Ticket_transaction.Transaction_ID, Ticket_transaction.Tickets_Ticket_ID 
 FROM Handlers INNER JOIN Ticket_transaction 
