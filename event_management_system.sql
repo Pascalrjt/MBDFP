@@ -1,4 +1,4 @@
---Script: Event Management System
+--REM   Script: Event Management System
 --Pascal Roger Junior Tauran    - 5025211072
 --Faraihan Rafi Adityawarman    - 5025211074
 --Ariel Pratama Menlolo         - 5025211194
@@ -598,4 +598,35 @@ $$;
 -- calling function 3
 SELECT get_event_duration('your_event_id') AS event_duration;
 
+-- trigger & function to automatically update the Ticket_stock column in the Tickets table whenever a new ticket transaction is inserted into the Ticket_transaction table. 
+-- function
+CREATE OR REPLACE FUNCTION update_ticket_stock()
+    RETURNS TRIGGER
+    LANGUAGE plpgsql
+AS $$
+BEGIN
+    -- Declare variables
+    DECLARE
+        ticket_id_var VARCHAR(20);
+        ticket_stock_var INTEGER;
+    BEGIN
+        -- Get the ticket ID and current stock for the inserted transaction
+        SELECT Tickets_Ticket_ID, Ticket_stock
+        INTO ticket_id_var, ticket_stock_var
+        FROM Tickets
+        WHERE Ticket_ID = NEW.Tickets_Ticket_ID;
 
+        -- Update the ticket stock
+        UPDATE Tickets
+        SET Ticket_stock = ticket_stock_var - 1
+        WHERE Ticket_ID = ticket_id_var;
+        
+        RETURN NEW;
+    END;
+END;
+$$;
+-- trigger
+CREATE TRIGGER update_ticket_stock
+    AFTER INSERT ON Ticket_transaction
+    FOR EACH ROW
+    EXECUTE FUNCTION update_ticket_stock();
