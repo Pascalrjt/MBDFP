@@ -1,4 +1,4 @@
-# MBDFP
+# Database Management Final Project Repository
 
 | NAME                      | NRP       |
 |---------------------------|-----------|
