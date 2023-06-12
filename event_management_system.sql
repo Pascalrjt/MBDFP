@@ -601,32 +601,36 @@ SELECT get_event_duration('your_event_id') AS event_duration;
 -- trigger & function to automatically update the Ticket_stock column in the Tickets table whenever a new ticket transaction is inserted into the Ticket_transaction table. 
 -- function
 CREATE OR REPLACE FUNCTION update_ticket_stock()
-    RETURNS TRIGGER
-    LANGUAGE plpgsql
-AS $$
+RETURNS TRIGGER AS $$
+DECLARE
+    ticket_id_var VARCHAR(20);
+    ticket_stock_var INTEGER;
 BEGIN
-    -- Declare variables
-    DECLARE
-        ticket_id_var VARCHAR(20);
-        ticket_stock_var INTEGER;
-    BEGIN
-        -- Get the ticket ID and current stock for the inserted transaction
-        SELECT Tickets_Ticket_ID, Ticket_stock
-        INTO ticket_id_var, ticket_stock_var
-        FROM Tickets
-        WHERE Ticket_ID = NEW.Tickets_Ticket_ID;
-
-        -- Update the ticket stock
-        UPDATE Tickets
-        SET Ticket_stock = ticket_stock_var - 1
-        WHERE Ticket_ID = ticket_id_var;
-        
-        RETURN NEW;
-    END;
+    -- Get the ticket ID and current stock for the inserted transaction
+    SELECT Ticket_ID, Ticket_stock
+    INTO ticket_id_var, ticket_stock_var
+    FROM Tickets
+    WHERE Ticket_ID = NEW.Tickets_Ticket_ID;
+    
+    -- Update the ticket stock
+    UPDATE Tickets
+    SET Ticket_stock = ticket_stock_var - 1
+    WHERE Ticket_ID = ticket_id_var;
+    
+    RETURN NEW;
 END;
-$$;
+$$ LANGUAGE plpgsql;
+
 -- trigger
-CREATE TRIGGER update_ticket_stock
-    AFTER INSERT ON Ticket_transaction
-    FOR EACH ROW
-    EXECUTE FUNCTION update_ticket_stock();
+CREATE TRIGGER update_ticket_stock_trigger
+AFTER INSERT ON Ticket_transaction
+FOR EACH ROW
+EXECUTE FUNCTION update_ticket_stock();
+
+-- Running the trigger by doing an insert to ticket_transaction
+Insert into Ticket_transaction (Transaction_ID, Attendee_Attendee_ID, Events_Event_ID, Tickets_Ticket_ID, Handlers_Handler_ID) values ('33', '195824367', '30708832719', '459382', '504567819');
+
+-- Seeing the change in the ticket stock for the respective ticket_ID (run before and after the insert in order to see the difference)
+SELECT Ticket_ID, Ticket_stock                                                                                                   
+FROM Tickets                                                   
+WHERE Ticket_ID = '459382';
