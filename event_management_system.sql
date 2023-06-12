@@ -630,3 +630,51 @@ CREATE TRIGGER update_ticket_stock
     AFTER INSERT ON Ticket_transaction
     FOR EACH ROW
     EXECUTE FUNCTION update_ticket_stock();
+
+
+SELECT * FROM Tickets WHERE Ticket_ID = 'TICKET123';
+SELECT * FROM Events WHERE Event_ID = 'E789';
+
+--
+CREATE OR REPLACE FUNCTION update_average_stall_fee()
+RETURNS TRIGGER AS $$
+DECLARE
+    total_fee DECIMAL(16, 2);
+    stall_count INTEGER;
+    average_fee DECIMAL(16, 2);
+BEGIN
+    IF TG_OP = 'INSERT' THEN
+        SELECT SUM(Stall_fee), COUNT(*)
+        INTO total_fee, stall_count
+        FROM Stalls
+        WHERE Events_Event_ID = NEW.Events_Event_ID;
+    ELSIF TG_OP = 'UPDATE' THEN
+        SELECT SUM(Stall_fee), COUNT(*)
+        INTO total_fee, stall_count
+        FROM Stalls
+        WHERE Events_Event_ID = NEW.Events_Event_ID;
+        
+        total_fee := total_fee - OLD.Stall_fee + NEW.Stall_fee;
+    END IF;
+    
+    IF stall_count > 0 THEN
+        average_fee := total_fee / stall_count;
+    ELSE
+        average_fee := 0;
+    END IF;
+    
+    UPDATE Events
+    SET Average_Stall_Fee = average_fee
+    WHERE Event_ID = NEW.Events_Event_ID;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_average_stall_fee_trigger
+AFTER INSERT OR UPDATE ON Stalls
+FOR EACH ROW
+EXECUTE FUNCTION update_average_stall_fee();
+
+INSERT INTO Ticket_transaction (Transaction_ID, Attendee_Attendee_ID, Events_Event_ID, Tickets_Ticket_ID, Handlers_Handler_ID)
+VALUES ('T123', 'A456', 'E789', 'TICKET123', 'H123');
