@@ -1,4 +1,4 @@
---Script: Event Management System
+--REM   Script: Event Management System
 --Pascal Roger Junior Tauran    - 5025211072
 --Faraihan Rafi Adityawarman    - 5025211074
 --Ariel Pratama Menlolo         - 5025211194
@@ -552,38 +552,39 @@ SELECT Event_location
 FROM Events
 WHERE Event_ID = '72597330248';
 
--- function 1: viewing sponsor money from specific event
-CREATE OR REPLACE FUNCTION get_total_sponsorship_amount(event_id VARCHAR(20))
-RETURNS DECIMAL(16,2)
-LANGUAGE plpgsql -- Language declaration
-AS $$
+-- function 1: retrieve the total number of attendees for an event
+CREATE FUNCTION get_total_attendees(event_id VARCHAR(20)) RETURNS INTEGER AS $$
 DECLARE
-  total_amount DECIMAL(16,2);
+    total_attendees INTEGER;
 BEGIN
-  SELECT SUM(Sponsor_money) INTO total_amount
-  FROM Sponsors
-  WHERE Events_Event_ID = event_id;
-  
-  RETURN total_amount;
+    SELECT COUNT(*) INTO total_attendees
+    FROM Ticket_transaction
+    WHERE Events_Event_ID = event_id;
+    
+    RETURN COALESCE(total_attendees, 0);
 END;
-$$;
+$$ LANGUAGE plpgsql;
+
 
 -- calling function 1
-SELECT get_total_sponsorship_amount('your_event_id');
+SELECT get_total_attendees('61539471910');
 
--- function 2: calculating projected revenue of an event from ticket sales
-CREATE OR REPLACE FUNCTION calculate_total_revenue(event_id VARCHAR(20))
-RETURNS DECIMAL(16, 2)
-LANGUAGE SQL
-AS $$
-SELECT SUM(T.Ticket_price * T.Ticket_stock) AS total_revenue
-FROM Ticket_transaction TT
-JOIN Tickets T ON TT.Tickets_Ticket_ID = T.Ticket_ID
-WHERE TT.Events_Event_ID = event_id;
-$$;
+-- function 2: calculating the average ticket price for an event
+CREATE FUNCTION calculate_average_ticket_price(event_id VARCHAR(20)) RETURNS DECIMAL(16,2) AS $$
+DECLARE
+    average_price DECIMAL(16,2);
+BEGIN
+    SELECT AVG(T.Ticket_price) INTO average_price
+    FROM Tickets T
+    INNER JOIN Ticket_transaction TT ON T.Ticket_ID = TT.Tickets_Ticket_ID
+    WHERE TT.Events_Event_ID = event_id;
+    
+    RETURN COALESCE(average_price, 0.0);
+END;
+$$ LANGUAGE plpgsql;
 
 -- calling function 2
-SELECT calculate_total_revenue('your_event_id');
+SELECT calculate_average_ticket_price('72597330248');
 
 -- function 3: displaying the duration of an event (in days)
 CREATE OR REPLACE FUNCTION get_event_duration(event_id VARCHAR(20))
@@ -592,7 +593,7 @@ LANGUAGE SQL
 AS $$
 SELECT (Event_end_date - Event_start_date) AS event_duration
 FROM Events
-WHERE Event_ID = event_id;
+WHERE Event_ID = event_id;s
 $$;
 
 -- calling function 3
