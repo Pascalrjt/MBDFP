@@ -104,36 +104,6 @@ Alter table Stalls
 Alter table Special_Guest 
     add constraint Events_Event_ID_FK_GST FOREIGN KEY (Events_Event_ID) REFERENCES Events (Event_ID);
 
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000006', 'Ava Smith', 'Ticket_seller', '0857-8264-1495');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000043', 'Michael Brown', 'Vendor_manager', '0813-6288-8998');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000091', 'Olivia Johnson', 'Chief', '0851-9314-3926');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000017', 'Ethan Williams', 'Operational', '0853-6786-6921');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000078', 'Charlotte Jones', 'Creative', '0813-4444-2528');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000055', 'Benjamin Davis', 'Ticket_seller', '0822-7235-7766');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000033', 'Abigail Miller', 'Creative', '0896-5575-1939');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000080', 'James Taylor', 'Ticket_seller', '0815-6422-1928');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000094', 'Emily Davis', 'Vendor_manager', '0856-9812-3865');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('500000001', 'William Rodriguez', 'Operational', '0811-4499-9885');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('501234567', 'Dewi Sutanto', 'Operational', '0812-345-678');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('509876543', 'Agus Setiawan', 'Vendor_manager', '0821-234-567');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('503456789', 'Lusi Novitasari', 'Ticket_seller', '0857-123-456');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('509283471', 'Kiki Pratiwi', 'Creative', '0813-321-789');
-
-Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum) values ('504567819', 'Yadi Susanto', 'Creative', '0895-432-761');
-
 Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('8457412763', 'Emily Smith', 'EmilySmith@gmail.com', '0816-7315-6629');
 
 Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('8672054198', 'James Johnson', 'JamesJohnson@gmail.com', '0851-7129-8115');
@@ -244,7 +214,7 @@ Insert into Special_Guest (Guest_ID, Guest_name, Guest_fee) values ('1278', 'Lil
 
 Insert into Special_Guest (Guest_ID, Guest_name, Guest_fee) values ('9365', 'The Overtunes', 22000);
 
-Insert into Special_Guest (Guest_ID, Guest_name, Guest_fee) values ('7593', '6543', 15000);
+Insert into Special_Guest (Guest_ID, Guest_name, Guest_fee) values ('7593', 'Deddy Corbuzier', 15000);
 
 Insert into Special_Guest (Guest_ID, Guest_name, Guest_fee) values ('2345', 'Rayi Putra', 23000);
 
@@ -284,35 +254,65 @@ Insert into Tickets (Ticket_ID, Ticket_price, Ticket_stock) values ('123456', 28
 
 Insert into Tickets (Ticket_ID, Ticket_price, Ticket_stock) values ('654321', 25, 5000);
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('72597330248', 'SCHEMATICS REEVA', 'The Robotics Building', DATE '2022-01-05', DATE '2022-01-12', '65432');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('72597330248', 'SCHEMATICS REEVA', 'The Robotics Building', DATE '2022-01-05', DATE '2022-01-12', '65432', '6239');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('48330525142', 'SCHEMATICS NLC', 'The Informatics Building', DATE '2022-02-16', DATE '2022-02-23', '12345');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('48330525142', 'SCHEMATICS NLC', 'The Informatics Building', DATE '2022-02-16', DATE '2022-02-23', '12345', '8741');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('12312686899', 'SCHEMATICS NPC', 'The Cafeteria', DATE '2022-03-28', DATE '2022-04-04', '98765');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('12312686899', 'SCHEMATICS NPC', 'The Cafeteria', DATE '2022-03-28', DATE '2022-04-04', '98765', '1596');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('64569316648', 'Ini Lho ITS! 2023', 'Graha Sepuluh Nopember', DATE '2022-04-09', DATE '2022-04-16', '23456');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('64569316648', 'Ini Lho ITS! 2023', 'Graha Sepuluh Nopember', DATE '2022-04-09', DATE '2022-04-16', '23456', '3276');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('70910949630', 'Mabacup 2022', 'The Sport Building', DATE '2022-05-21', DATE '2022-05-28', '75938');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('70910949630', 'Mabacup 2022', 'The Sport Building', DATE '2022-05-21', DATE '2022-05-28', '75938', '5910');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('74230130051', 'ARA 4.0', 'The Business Building', DATE '2022-06-02', DATE '2022-06-09', '81597');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('74230130051', 'ARA 4.0', 'The Business Building', DATE '2022-06-02', DATE '2022-06-09', '81597', '7452');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('90369801891', 'Petrolida 2023', 'The Machine Engineering Building', DATE '2022-07-14', DATE '2022-07-21', '78634');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('90369801891', 'Petrolida 2023', 'The Machine Engineering Building', DATE '2022-07-14', DATE '2022-07-21', '78634', '2963');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('45961750305', 'Wisuda 126', 'Graha Sepuluh Nopember', DATE '2022-08-25', DATE '2022-09-01', '29158');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('45961750305', 'Wisuda 126', 'Graha Sepuluh Nopember', DATE '2022-08-25', DATE '2022-09-01', '29158', '4680');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('46958987968', 'Gerigi ITS', 'Institut Teknologi Sepuluh Nopember', DATE '2022-09-06', DATE'2022-09-13', '20349');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('46958987968', 'Gerigi ITS', 'Institut Teknologi Sepuluh Nopember', DATE '2022-09-06', DATE'2022-09-13', '20349', '1278');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('95293450399', 'Dies Natalis ITS', 'Graha Sepuluh Nopember', DATE '2022-10-18', DATE '2022-10-25', '39607');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('95293450399', 'Dies Natalis ITS', 'Graha Sepuluh Nopember', DATE '2022-10-18', DATE '2022-10-25', '39607', '9365');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('12444437253', 'LKMM PRA-TD', 'Informatics Field', DATE '2022-02-14', DATE '2022-02-21', '47389');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('12444437253', 'LKMM PRA-TD', 'Informatics Field', DATE '2022-02-14', DATE '2022-02-21', '47389', '7593');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('61539471910', 'Student elections', 'Student center', DATE '2022-04-22', DATE '2022-04-29', '52468');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('61539471910', 'Student elections', 'Student center', DATE '2022-04-22', DATE '2022-04-29', '52468', '2345');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('24692933672', 'Lecture series', 'Classroom building', DATE '2022-06-09', DATE '2022-06-16', '60987');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('24692933672', 'Lecture series', 'Classroom building', DATE '2022-06-09', DATE '2022-06-16', '60987', '9876');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('30708832719', 'Career fair', 'Student center', DATE '2022-08-03', DATE '2022-08-10', '31486');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('30708832719', 'Career fair', 'Student center', DATE '2022-08-03', DATE '2022-08-10', '31486', '1234');
 
-Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID) values ('67340405553', 'Campus festivals', 'Student center', DATE '2022-11-26', DATE '2022-12-03', '24597');
+Insert into Events (Event_ID, Event_name, Event_location, Event_start_date, Event_end_date, Sponsors_Sponsor_ID, Special_Guests_Guest_ID) values ('67340405553', 'Campus festivals', 'Student center', DATE '2022-11-26', DATE '2022-12-03', '24597', '6543');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('500000006', 'Ava Smith', 'Ticket_seller', '0857-8264-1495', '72597330248');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('500000043', 'Michael Brown', 'Vendor_manager', '0813-6288-8998', '48330525142');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('500000091', 'Olivia Johnson', 'Chief', '0851-9314-3926', '12312686899');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('500000017', 'Ethan Williams', 'Operational', '0853-6786-6921', '64569316648');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('500000078', 'Charlotte Jones', 'Creative', '0813-4444-2528', '70910949630');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('500000055', 'Benjamin Davis', 'Ticket_seller', '0822-7235-7766', '74230130051');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('500000033', 'Abigail Miller', 'Creative', '0896-5575-1939', '90369801891');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('500000080', 'James Taylor', 'Ticket_seller', '0815-6422-1928', '45961750305');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('500000094', 'Emily Davis', 'Vendor_manager', '0856-9812-3865', '46958987968');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('500000001', 'William Rodriguez', 'Operational', '0811-4499-9885', '95293450399');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('501234567', 'Dewi Sutanto', 'Operational', '0812-345-678', '12444437253');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('509876543', 'Agus Setiawan', 'Vendor_manager', '0821-234-567', '61539471910');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('503456789', 'Lusi Novitasari', 'Ticket_seller', '0857-123-456', '24692933672');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('509283471', 'Kiki Pratiwi', 'Creative', '0813-321-789', '30708832719');
+
+Insert into Handlers (Handler_ID, Handler_name, Handler_jobdesk, Handler_phoneNum, Events_Event_ID) values ('504567819', 'Yadi Susanto', 'Creative', '0895-432-761', '67340405553');
 
 Insert into Ticket_transaction (Transaction_ID, Attendee_Attendee_ID, Events_Event_ID, Tickets_Ticket_ID, Handlers_Handler_ID) values ('1', '8457412763', '72597330248', '459382', '500000006');
 
