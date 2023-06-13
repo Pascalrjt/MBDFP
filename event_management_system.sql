@@ -1,4 +1,4 @@
---REM   Script: Event Management System
+--Script: Event Management System
 --Pascal Roger Junior Tauran    - 5025211072
 --Faraihan Rafi Adityawarman    - 5025211074
 --Ariel Pratama Menlolo         - 5025211194
@@ -613,6 +613,21 @@ $$ LANGUAGE plpgsql;
 
 -- calling function 4
 SELECT * FROM get_special_guest_details('8741'); 
+
+-- function 5: displaying the sponsors associated with a specific event
+CREATE OR REPLACE FUNCTION get_event_sponsors(p_event_id VARCHAR(20)) RETURNS TABLE
+(Sponsor_ID VARCHAR(20), Sponsor_name VARCHAR(30), Sponsor_money DECIMAL(16,2), Sponsor_contact_person VARCHAR(20), Sponsor_phoneNum VARCHAR(20), Event_name VARCHAR(40)) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT S.Sponsor_ID, S.Sponsor_name, S.Sponsor_money, S.Sponsor_contact_person, S.Sponsor_phoneNum, E.Event_name
+    FROM Sponsors S
+    INNER JOIN Events E ON S.Sponsor_ID = E.Sponsors_Sponsor_ID
+    WHERE E.Event_ID = p_event_id;
+END;
+$$ LANGUAGE plpgsql;
+
+-- calling function 5
+SELECT * FROM get_event_sponsors('70910949630');
 
 -- trigger & function to automatically update the Ticket_stock column in the Tickets table whenever a new ticket transaction is inserted into the Ticket_transaction table. 
 -- function
