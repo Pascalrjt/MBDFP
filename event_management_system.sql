@@ -629,6 +629,21 @@ $$ LANGUAGE plpgsql;
 -- calling function 5
 SELECT * FROM get_event_sponsors('70910949630');
 
+-- function 6: Showing available tickets for a specific event (where ticket_stock > 0)
+CREATE OR REPLACE FUNCTION get_available_tickets(event_id VARCHAR(20)) RETURNS TABLE
+(Ticket_ID VARCHAR(20), Ticket_price DECIMAL(16,2), Ticket_stock INTEGER) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT T.Ticket_ID, T.Ticket_price, T.Ticket_stock
+    FROM Tickets T
+    INNER JOIN Ticket_transaction TT ON T.Ticket_ID = TT.Tickets_Ticket_ID
+    WHERE TT.Events_Event_ID = event_id AND T.Ticket_stock > 0;
+END;
+$$ LANGUAGE plpgsql;
+
+-- calling function 5
+SELECT * FROM get_available_tickets('45961750305');    
+
 -- trigger & function to automatically update the Ticket_stock column in the Tickets table whenever a new ticket transaction is inserted into the Ticket_transaction table. 
 -- function
 CREATE OR REPLACE FUNCTION update_ticket_stock()
