@@ -104,6 +104,8 @@ Alter table Stalls
 Alter table Special_Guest 
     add constraint Events_Event_ID_FK_GST FOREIGN KEY (Events_Event_ID) REFERENCES Events (Event_ID);
 
+ALTER TABLE Events ADD COLUMN Total_revenue DECIMAL(16,2) DEFAULT 0;
+
 Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('8457412763', 'Emily Smith', 'EmilySmith@gmail.com', '0816-7315-6629');
 
 Insert into Attendee (Attendee_ID, Attendee_name, Attendee_email, Attendee_phoneNum) values ('8672054198', 'James Johnson', 'JamesJohnson@gmail.com', '0851-7129-8115');
@@ -440,6 +442,13 @@ WHERE Ticket_transaction.Transaction_ID IN (
     SELECT Transaction_ID FROM Ticket_transaction 
 );
 
+-- query to see total revenue from an event from the ticket transactions
+SELECT SUM(t.Ticket_price) AS Total_revenue
+FROM Tickets t
+JOIN Ticket_transaction tt ON t.Ticket_ID = tt.Tickets_Ticket_ID
+WHERE tt.Events_Event_ID = '72597330248';
+
+
 SELECT * 
 FROM Handlers;
 
@@ -680,3 +689,32 @@ Insert into Ticket_transaction (Transaction_ID, Attendee_Attendee_ID, Events_Eve
 SELECT Ticket_ID, Ticket_stock                                                                                                   
 FROM Tickets                                                   
 WHERE Ticket_ID = '459382';
+
+-- trigger and function 2 to update the total revenue 
+CREATE TRIGGER update_total_revenue
+AFTER INSERT ON Ticket_transaction
+FOR EACH ROW
+EXECUTE FUNCTION update_total_revenue_function();
+
+CREATE OR REPLACE FUNCTION update_total_revenue_function()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE Events
+    SET Total_revenue = Total_revenue + (
+        SELECT Ticket_price FROM Tickets WHERE Ticket_ID = NEW.Tickets_Ticket_ID
+    )
+    WHERE Event_ID = NEW.Events_Event_ID;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+-- calling trigger 2 with the insert function
+Insert into Ticket_transaction (Transaction_ID, Attendee_Attendee_ID, Events_Event_ID, Tickets_Ticket_ID, Handlers_Handler_ID) values ('35', '8457412763', '72597330248', '459382', '500000006');
+
+-- query to see total revenue from an event from the ticket transactions
+SELECT SUM(t.Ticket_price) AS Total_revenue
+FROM Tickets t
+JOIN Ticket_transaction tt ON t.Ticket_ID = tt.Tickets_Ticket_ID
+WHERE tt.Events_Event_ID = '72597330248';
