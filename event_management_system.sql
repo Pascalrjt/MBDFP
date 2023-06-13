@@ -641,7 +641,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- calling function 5
+-- calling function 6
 SELECT * FROM get_available_tickets('45961750305');    
 
 -- trigger & function to automatically update the Ticket_stock column in the Tickets table whenever a new ticket transaction is inserted into the Ticket_transaction table. 
