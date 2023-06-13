@@ -473,6 +473,25 @@ FROM Tickets;
 SELECT * 
 FROM Ticket_transaction;
 
+-- query showing 5 event id with its name and the handler ID in a ascending order
+SELECT Events.Event_ID, Events.Event_name, Handlers.Handler_name
+FROM Events
+JOIN Handlers ON Events.Event_ID = Handlers.Events_Event_ID
+ORDER BY Events.Event_name ASC
+LIMIT 5;
+
+-- query the event name with attendee name
+SELECT EVENTS.EVENT_NAME, 
+    ATTENDEE.ATTENDEE_NAME, 
+    COUNT(*) 
+FROM TICKET_TRANSACTION 
+    INNER JOIN EVENTS 
+    ON TICKET_TRANSACTION.EVENTS_EVENT_ID = EVENTS.EVENT_ID 
+    INNER JOIN ATTENDEE 
+    ON TICKET_TRANSACTION.ATTENDEE_ATTENDEE_ID = ATTENDEE.ATTENDEE_ID 
+GROUP BY EVENTS.EVENT_NAME, 
+    ATTENDEE.ATTENDEE_NAME;
+
 -- creating an index on the "Event_location" column in the "Events" table
 CREATE INDEX idx_Events_Event_location ON Events (Event_location);
 
