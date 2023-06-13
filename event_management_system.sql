@@ -473,25 +473,6 @@ FROM Tickets;
 SELECT * 
 FROM Ticket_transaction;
 
--- query showing 5 event id with its name and the handler ID in a ascending order
-SELECT Events.Event_ID, Events.Event_name, Handlers.Handler_name
-FROM Events
-JOIN Handlers ON Events.Event_ID = Handlers.Events_Event_ID
-ORDER BY Events.Event_name ASC
-LIMIT 5;
-
--- query the event name with attendee name
-SELECT EVENTS.EVENT_NAME, 
-    ATTENDEE.ATTENDEE_NAME, 
-    COUNT(*) 
-FROM TICKET_TRANSACTION 
-    INNER JOIN EVENTS 
-    ON TICKET_TRANSACTION.EVENTS_EVENT_ID = EVENTS.EVENT_ID 
-    INNER JOIN ATTENDEE 
-    ON TICKET_TRANSACTION.ATTENDEE_ATTENDEE_ID = ATTENDEE.ATTENDEE_ID 
-GROUP BY EVENTS.EVENT_NAME, 
-    ATTENDEE.ATTENDEE_NAME;
-
 -- creating an index on the "Event_location" column in the "Events" table
 CREATE INDEX idx_Events_Event_location ON Events (Event_location);
 
@@ -762,3 +743,34 @@ WHERE Handler_ID = '500000043';
 
 -- query to see the changes made by the trigger
 SELECT * FROM Handlers;
+
+-- trigger and function 4: to unassign an event location and update its start date 
+CREATE OR REPLACE FUNCTION update_event_location()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE Events
+    SET 
+        Event_location = 'Unassigned Location',
+        Event_end_date = NEW.Event_start_date + INTERVAL '7 days'
+    WHERE Event_ID = NEW.Event_ID;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_event_location_trigger
+AFTER UPDATE OF Event_start_date ON Events
+FOR EACH ROW
+EXECUTE FUNCTION update_event_location();
+
+-- calling the trigger 
+UPDATE Events
+SET Event_start_date = '2023-07-01'
+WHERE Event_ID = '12444437253';
+
+-- query to view the changes made by the trigger
+SELECT * FROM Events;
+
+
+
+
