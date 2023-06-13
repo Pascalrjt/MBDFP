@@ -644,8 +644,8 @@ $$ LANGUAGE plpgsql;
 -- calling function 6
 SELECT * FROM get_available_tickets('45961750305');    
 
--- trigger & function to automatically update the Ticket_stock column in the Tickets table whenever a new ticket transaction is inserted into the Ticket_transaction table. 
--- function
+-- trigger & function 1 to automatically update the Ticket_stock column in the Tickets table whenever a new ticket transaction is inserted into the Ticket_transaction table. 
+-- function for trigger 1
 CREATE OR REPLACE FUNCTION update_ticket_stock()
 RETURNS TRIGGER AS $$
 DECLARE
@@ -667,7 +667,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- trigger
+-- trigger 1
 CREATE TRIGGER update_ticket_stock_trigger
 AFTER INSERT ON Ticket_transaction
 FOR EACH ROW
