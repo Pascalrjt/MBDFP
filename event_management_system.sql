@@ -718,3 +718,28 @@ SELECT SUM(t.Ticket_price) AS Total_revenue
 FROM Tickets t
 JOIN Ticket_transaction tt ON t.Ticket_ID = tt.Tickets_Ticket_ID
 WHERE tt.Events_Event_ID = '72597330248';
+
+-- trigger and function 3 
+CREATE OR REPLACE FUNCTION update_handler_jobdesk()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE Handlers
+    SET Handler_jobdesk = 'Unassigned'
+    WHERE Handler_ID = NEW.Handler_ID;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_handler_jobdesk_trigger
+AFTER UPDATE OF Handler_name ON Handlers
+FOR EACH ROW
+EXECUTE FUNCTION update_handler_jobdesk();
+
+-- calling trigger 3;
+UPDATE Handlers                                    
+SET Handler_name = 'John Doe'
+WHERE Handler_ID = '500000043';
+
+-- query to see the changes made by the trigger
+SELECT * FROM Handlers;
