@@ -599,6 +599,21 @@ $$;
 -- calling function 3
 SELECT get_event_duration('your_event_id') AS event_duration;
 
+-- function 4: displaying details of a special guest along with the events that they are a special guest of
+CREATE OR REPLACE FUNCTION get_special_guest_details(input_guest_id VARCHAR(20)) RETURNS TABLE
+(Guest_ID VARCHAR(20), Guest_name VARCHAR(20), Guest_fee DECIMAL(16,2), Event_ID VARCHAR(20), Event_name VARCHAR(40)) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT SG.Guest_ID, SG.Guest_name, SG.Guest_fee, E.Event_ID, E.Event_name
+    FROM Events E
+    JOIN Special_Guest SG ON E.Special_Guests_Guest_ID = SG.Guest_ID
+    WHERE SG.Guest_ID = input_guest_id;
+END;
+$$ LANGUAGE plpgsql;
+
+-- calling function 4
+SELECT * FROM get_special_guest_details('8741'); 
+
 -- trigger & function to automatically update the Ticket_stock column in the Tickets table whenever a new ticket transaction is inserted into the Ticket_transaction table. 
 -- function
 CREATE OR REPLACE FUNCTION update_ticket_stock()
